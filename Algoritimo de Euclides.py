@@ -15,3 +15,4 @@ elif numb > 0:
     print(numb)
     
 # pequena nota sobre o algoritmo de euclides, em resumo, o MDC pode ser calculado subtraindo o menor número do maior em dado par até o ponto em que algum dos dois seja ZERO
+# Mais informações do Algoritmo, consultar: https://pt.wikipedia.org/wiki/Algoritmo_de_Euclides

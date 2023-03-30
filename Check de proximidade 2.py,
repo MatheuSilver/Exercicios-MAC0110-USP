@@ -1,0 +1,16 @@
+# Essa é uma solução um pouco mais simplificada pra versão 1 do programa, infelizmente não soube como sair do loop sem usar o break nesse caso.
+
+# Em resumo, numA armazena um valor que é o último número fornecido
+# Então, ao entrar no loop, o último numero é removido do número original fornecido, e logo em sequencia o comparador numA adquiri esse numero.
+# durante a comparação, o n equivale a próxima casa decimal de n enquanto numA equivale a casa decimal anterior.
+# Escreva o seu programa
+n = int(input("Escreva uma sequência de números"));
+numA = n%10;
+while n > 0:
+    numA = n%10
+    n = int(n/10)
+    if (numA == n%10):
+        print('Sim!')
+        break;
+    elif(n == 0):
+        print('Não!')

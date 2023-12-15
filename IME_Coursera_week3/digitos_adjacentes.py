@@ -7,17 +7,16 @@
 # Esta foi a primeira tentativa de solução, entretanto existe uma outra melhor pensada logo depois dessa
 # Que usa coisas menos complexas, cujo o arquivo possui o mesmo nome que este.
 n = int(input("Digite um número inteiro: "));
-array = []
-divisoes = 0;
-while n != 0:
-    array.append(n%10);
-    n = int(n/10);
-    divisoes += 1;
-contador = 0;
-while contador < divisoes:
-    if(int(array[contador]) == int(array[contador + 1])):
-        print('Sim');
-        break;
-    elif(contador == divisoes-2):
-        print('Não')
-    contador +=1
+prevnum = n%10
+n//=10
+achou = False
+while (n > 0 and not achou):
+    next_num=n%10
+    if prevnum==next_num:
+        achou = True
+        print("sim")
+    prevnum=next_num
+    n//=10
+if not achou:
+    print("não")
+

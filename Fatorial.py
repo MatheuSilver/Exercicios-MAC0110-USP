@@ -1,5 +1,5 @@
 # Dado um número inteiro n >= 0, calcular n!.
-fatorial = int(input('Escreva um número pra tirar seu fatorial'))
+fatorial = int(input('Digite o valor de n: '))
 maior = fatorial
 while maior > 1:
     maior = maior - 1

@@ -48,7 +48,7 @@ class Algoritmos:
             if lista[pb] == x:
                 return True
             elif lista[pb] > x:
-                ponto1 = pb
+                ponto1 = pb - 1
             else:
                 ponto2 = pb + 1
         return False
@@ -102,3 +102,45 @@ class Algoritmos:
                     lista[j], lista[j+1] = lista[j+1], lista[j]
 
         return lista
+    
+    '''
+    Este é bem parecido com o anterior, então vou resumir um pouquinho com a analogia do tubo de ensaio.
+
+    O algoritmo abaixo funciona da forma:
+        1. Tome o último elemento de uma lista
+        2. Então, percorre todos os elementos da lista, verificando se, o elemento na posição atual
+           é maior que o da posição a sua frente, isto é se o elemento em 9 é maior que o elemento em 10
+        3. Se ele encontrar alguem com a descrição de 2) então ele troca ambos de lugar e assim vai indo 
+           até este chegar ao começo da lista. (lembre-se que partimos do final)
+
+    Segundo a analogia do tubo de ensaio.
+        Seria meio que, pegamos o elemento no topo (fim da lista), e arrastamos ele pra baixo conforme
+        sua densidade (ou tamanho) até encontramos alguém mais pesado que ele.
+    '''
+    
+    def bubble_sort(lista):
+        '''
+        Dada uma lista qualquer, a função irá ordenar de forma crescente os conteudos desta lista
+        e no final, irá devolver esta lista ordenada.
+        '''
+        for i in range(len(lista)-1, 0, -1):
+            for j in range(i):
+                if lista[j] > lista[j+1]: #Se trocar o > por < então passa a ser na forma decrescente.
+                    lista[j], lista[j+1] = lista[j+1], lista[j]
+
+        return lista
+    #Um pequeno adendo no bubble sort na prova: "Algoritmo de Ordenação da Bolha e Testes Automatizados"
+    #A resposta correta para a pergunta (Verifique isso com o código) deveria ser [2, 5, 1, 3, 4]
+    #Mas o corretor do coursera assume que a resposta correta é [2, 1, 3, 4, 5]
+    
+    #Isso é até possível teóricamente, se o bubble sort ocorresse indo do começo ao fim
+    #Entretanto, ele ordena percorrendo a lista do fim ao começo assim como informado na função acima.
+    
+if __name__ == "__main__":
+    tamanho_lista = 10
+    maior_elemento = 30
+    numeros_aleatorios = [random.randint(0, maior_elemento) for _ in range(tamanho_lista)]
+    #Copiei a parte de cima ai do chat gpt mesmo k
+    #Preguiça de pensar em algo pra gerar numero aleatório pra teste.
+
+    print(Algoritmos.bubble_sort(numeros_aleatorios))
